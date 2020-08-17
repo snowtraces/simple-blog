@@ -1,32 +1,34 @@
-var jsList = [
+let jsList = [
     './js/util/function.js',
     './js/util/event-hub.js',
 
     './js/entity.js',
     './js/module/main-post.js',
+    // './js/3rdparty/prism.js'
 ]
 
-var developModel = false;
+let developModel = false;
 
-var cssList = [
-    './css/main.css'
+let cssList = [
+    './css/main.css',
+    './css/hight.css',
 ]
 
-var version = developModel ? new Date().getTime() : '1.0.0';
+let version = developModel ? new Date().getTime() : '1.0.0';
 
 function loadScript(url) {
-    var script = document.createElement('script');
+    let script = document.createElement('script');
     script.src = `${url}?version=${version}`;
-    var body = document.querySelector('body');
+    let body = document.querySelector('body');
     body.append(script);
     
     return script;
 }
 function loadCss(url) {
-    var link = document.createElement('link');
+    let link = document.createElement('link');
     link.rel = 'stylesheet'
     link.href = `${url}?version=${version}`;
-    var head = document.querySelector('head');
+    let head = document.querySelector('head');
     head.append(link);
 
     return link;

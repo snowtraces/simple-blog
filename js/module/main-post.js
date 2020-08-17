@@ -3,13 +3,14 @@
         el: '#main',
         template: `\${data.map(post => post.getHtml()).join('')}`,
         render(data) {
+            debugger
             $.el(this.el).innerHTML = $.evalTemplate(this.template, data)
+            syncLoad(['./js/3rdparty/prism.js'], loadScript)
         }
     }
 
     let model = {
         data: []
-
     }
 
     let controller = {
@@ -192,7 +193,6 @@
             }
 
             // 结束处理
-            debugger
             if (pair_stack.length >= 2) {
                 // 判断pair是否成组
                 let pair_1 = pair_stack.pop()
@@ -250,7 +250,7 @@
                         // 解析meta信息
                         return this.metaParser(text);
                     } else {
-                        return `<pre class="line-numbers language-${type}"><code>${text}</code></pre>`
+                        return `<pre class="line-numbers language-${type}"><code class="language-${type}">${text.trim()}</code></pre>`
                     }
                 }
             }
