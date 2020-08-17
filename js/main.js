@@ -1,5 +1,6 @@
 let jsList = [
     './js/util/function.js',
+    './js/util/markdown.js',
     './js/util/event-hub.js',
 
     './js/entity.js',
