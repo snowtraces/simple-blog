@@ -69,6 +69,8 @@
             let last_pair_idx = -1;
 
             let pair_chars = ['`'];
+            let on_text_block = false;
+            let paragraph_cache = '';
             for (const c of mdText) {
                 // 新行初始化
                 if (flag_newLine) {
@@ -93,7 +95,6 @@
                     if (last_pair_idx === -1) {
                         pair_stack.push(c);
                     } else {
-
                         // 如果是连续的
                         if (last_pair_idx + 1 === char_idx) {
                             let last_pair = pair_stack.pop()
@@ -121,23 +122,63 @@
                             let pair_2 = pair_stack.pop()
 
                             if (pair_1 === pair_2) {
+                                if (on_text_block && pair_1 === '```') {
+                                    on_text_block = false;
+                                }
+
                                 // 数据出栈
-                                let data_seg = this.popStack(data_stack, pair_1)
+                                let data_seg = this.popStack(data_stack, pair_1, on_text_block)
                                 if (typeof data_seg === 'object') {
                                     result.meta = data_seg
                                 } else {
-                                    result_list.push(data_seg)
+                                    if (!on_text_block) {
+                                        if (pair_1 === '```') {
+                                            // 本文块结束
+                                            result_list.push(`${(paragraph_cache + data_seg).trim()}`)
+                                            paragraph_cache = '';
+                                        } else {
+                                            // 普通文本（段落模式）
+                                            if (c && c === '\n') {
+                                                // 换行
+                                                result_list.push(`<p>${(paragraph_cache + data_seg).trim()}</p>`)
+                                                paragraph_cache = '';
+                                            } else {
+                                                paragraph_cache += data_seg;
+                                            }
+                                        }
+                                    } else {
+                                        // 文本块中
+                                        paragraph_cache += data_seg;
+                                    }
                                 }
-                                data_stack = []
-
+                                data_stack = [];
                             }
                         } else if (pair_stack.length === 1) {
+                            on_text_block = pair_stack[0] === '```'
+
                             // 孤pair 数据出栈
                             let data_seg = this.popStack(data_stack)
                             if (typeof data_seg === 'object') {
                                 result.meta = data_seg
                             } else {
-                                result_list.push(data_seg)
+                                if (data_seg && data_seg.startsWith('# ')) {
+                                    $.log('一级标题', data_seg)
+                                } else {
+                                    if (!on_text_block) {
+                                        // 普通文本（段落模式）
+                                        if (c && c === '\n') {
+                                            // 换行
+                                            result_list.push(`<p>${(paragraph_cache + data_seg).trim()}</p>`)
+                                            paragraph_cache = '';
+                                        } else {
+                                            paragraph_cache += data_seg;
+                                        }
+                                    } else {
+                                        // 普通文本结束
+                                        result_list.push(`<p>${(paragraph_cache + data_seg).trim()}</p>`)
+                                        paragraph_cache = '';
+                                    }
+                                }
                             }
                             data_stack = []
                         }
@@ -151,21 +192,32 @@
             }
 
             // 结束处理
+            debugger
             if (pair_stack.length >= 2) {
                 // 判断pair是否成组
                 let pair_1 = pair_stack.pop()
                 let pair_2 = pair_stack.pop()
 
                 if (pair_1 === pair_2) {
+                    if (on_text_block) {
+                        on_text_block = pair_1 !== '```'
+                    }
+
                     // 数据出栈
                     let data_seg = this.popStack(data_stack, pair_1)
                     if (typeof data_seg === 'object') {
                         result.meta = data_seg
                     } else {
-                        result_list.push(data_seg)
+                        if (!on_text_block) {
+                            // 段落模式
+                            result_list.push(`<p>${paragraph_cache + data_seg}</p>`)
+                            paragraph_cache = '';
+                        } else {
+                            // 文本块
+                            paragraph_cache += data_seg;
+                        }
                     }
                     data_stack = []
-
                 }
             } else {
                 // 数据出栈
@@ -173,7 +225,9 @@
                 if (typeof data_seg === 'object') {
                     result.meta = data_seg
                 } else {
-                    result_list.push(data_seg)
+                    // 段落模式
+                    result_list.push(`<p>${paragraph_cache + data_seg}</p>`)
+                    paragraph_cache = '';
                 }
                 data_stack = []
             }
@@ -193,7 +247,7 @@
                     text = data_stack.slice(firstLineIdx + 1).join('')
 
                     if (type === 'meta') {
-                        // TODO 解析meta信息
+                        // 解析meta信息
                         return this.metaParser(text);
                     } else {
                         return `<pre class="line-numbers language-${type}"><code>${text}</code></pre>`
