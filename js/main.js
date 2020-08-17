@@ -8,7 +8,7 @@ let jsList = [
     // './js/3rdparty/prism.js'
 ]
 
-let developModel = false;
+let developModel = true;
 
 let cssList = [
     './css/main.css',
