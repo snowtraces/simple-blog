@@ -29,7 +29,7 @@ class Post {
     getHtml() {
         return `<div class="post">
         <div class="post-title">
-            <h2><a title="${this.title}" href="${this.url}">${this.title}</a></h2>
+            <h2>${this.title}</h2>
             <div class="title-meta">
                 <span class="meta-key">时间</span>
                 <span class="meta-value">${this.updateDate || this.createDate}</span>
@@ -37,8 +37,11 @@ class Post {
                 <span class="meta-value">${this.author}</span>
             </div>
         </div>
-        <div class="post-content">${this.content.join('')}</div>
+        <div class="post-content">
+            ${this.content.join('')}
+        </div>
         <div class="post-image"></div>
+        <ul class="post-menu"></ul>
     </div>`
     }
 }

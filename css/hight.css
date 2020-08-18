@@ -10,11 +10,9 @@ pre[class*="language-"] {
   hyphens: none;
   position: relative;
   background: #f6f6f6;
-  line-height: 1.5em;
-
+  line-height: 1.2rem;
   overflow: auto;
   word-break: break-word;
-  padding: .5em 1em;
 }
 
 /* Inline code */
@@ -127,7 +125,7 @@ pre.line-numbers > code {
 .line-numbers .line-numbers-rows {
   position: absolute;
   pointer-events: none;
-  top: .5em;
+  top: -0.1rem;
   font-size: 100%;
   left: -3.8em;
   width: 3em; /* works for line-numbers below 1000 lines */

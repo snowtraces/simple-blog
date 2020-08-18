@@ -18,7 +18,7 @@
 
             let existNav = this.pageNav()
             if (!existNav) {
-                this.listPost()
+                this.listPost({ pushState: false })
             }
             this.bindEvents()
             this.bindEventHub()
@@ -27,11 +27,13 @@
             $.bindEvent('.abstract-post .post-title h2, .read-more-btn', 'click', (e) => {
                 e.preventDefault();
                 let path = e.target.getAttribute('href');
-                window.eventHub.emit('post-detail', path)
+                window.eventHub.emit('post-detail', { data: path, pushState: true })
             })
         },
         bindEventHub() {
-
+            window.eventHub.on('post-list', (param) => {
+                this.listPost(param)
+            })
         },
         pageNav() {
             let path = window.location.href
@@ -40,14 +42,14 @@
                 let cat = url_segs[1]
                 let param = url_segs[2]
                 if (cat === 'post') {
-                    window.eventHub.emit('post-detail', param)
+                    window.eventHub.emit('post-detail', { data: param, pushState: true })
                 }
                 return true
             } else {
                 return false;
             }
         },
-        listPost() {
+        listPost(param) {
             let script_list = ['./js/3rdparty/prism.js']
             let post_obj = {}
             $.get('./data/post/index.json')
@@ -72,6 +74,10 @@
                         if (indexList.length === Object.keys(post_obj).length) {
                             this.model.data = Object.values(post_obj)
                             this.view.render(this.model.data)
+
+                            if (param.pushState) {
+                                history.pushState({ 'page_id': 0 }, null, './')
+                            }
                             syncLoad(script_list, loadScript)
                         }
                     });

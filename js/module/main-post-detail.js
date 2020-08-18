@@ -23,14 +23,14 @@
 
         },
         bindEventHub() {
-            window.eventHub.on('post-detail', (path) => {
-                this.openPost(path)
+            window.eventHub.on('post-detail', (param) => {
+                this.openPost(param)
             })
         },
-        openPost(path) {
+        openPost(param) {
             let script_list = ['./js/3rdparty/prism.js']
 
-            $.get(`./data/post/${path}.md`)
+            $.get(`./data/post/${param.data}.md`)
                 .then((postText) => {
                     let post_info = $.mdParser(postText);
                     if (post_info.script) {
@@ -39,7 +39,7 @@
                     $.log(post_info)
                     let post = new Post(
                         post_info.meta.title,
-                        path,
+                        param.data,
                         post_info.meta.author,
                         post_info.meta.date,
                         post_info.meta.date,
@@ -48,7 +48,11 @@
                     )
                     this.model.data = post
                     this.view.render(this.model.data)
-                    history.pushState({ 'page_id':  post_info.meta.id || 0}, null, './#post#' + path)
+
+                    if (param.pushState) {
+                        history.pushState({ 'page_id': post_info.meta.id || 0 }, null, './#post#' + param.data)
+                    }
+                    window.scroll(0, 0)
                     syncLoad(script_list, loadScript)
                 })
         }

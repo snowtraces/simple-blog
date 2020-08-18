@@ -41,7 +41,18 @@
     <script src="./js/main.js?version=1.0.0"></script>
     <script>
         window.addEventListener("popstate", function (e) {
-            self.location.reload();
+            let path = window.location.href
+            let url_segs = path.split('#')
+            debugger
+            if (url_segs.length >= 3) {
+                let cat = url_segs[1]
+                let param = url_segs[2]
+                if (cat === 'post') {
+                    window.eventHub.emit('post-detail', {data: param})
+                }
+            } else {
+                window.eventHub.emit('post-list', {pushStat: false})
+            }
         }, false);
     </script>
 </body>
