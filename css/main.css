@@ -193,9 +193,29 @@ a {
     word-break: break-all;
 }
 
-.post p a {
+.post .post-content a {
     color: #027ee1;
     border-bottom: 1px solid;
+}
+
+.post .post-content h2 {
+    color: #027ee1;
+    font-weight: normal;
+    font-size: 19px;
+    margin: 2em 0 1em;
+}
+
+.post .post-content h2::before {
+  content: "#";
+  display: inline-block;
+  margin-right: .5em;
+  color: #999;
+}
+
+.post .post-content h3 {
+    font-weight: bold;
+    font-size: 17px;
+    margin: 2em 0 1em;
 }
 
 .title-meta {

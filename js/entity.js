@@ -20,7 +20,7 @@ class Post {
                 <span class="meta-value">${this.author}</span>
             </div>
         </div>
-        <div class="post-content">${this.content.length >= 2 ? this.content.slice(0, 2) : this.content}</div>
+        <div class="post-content">${this.content.length >= 2 ? this.content.slice(0, 2).join('') : this.content.join('')}</div>
         <div class="post-image"></div>
         <button class="read-more-btn border-g" href="${this.url}">查看全文</button>
     </div>`
@@ -37,7 +37,7 @@ class Post {
                 <span class="meta-value">${this.author}</span>
             </div>
         </div>
-        <div class="post-content">${this.content}</div>
+        <div class="post-content">${this.content.join('')}</div>
         <div class="post-image"></div>
     </div>`
     }
