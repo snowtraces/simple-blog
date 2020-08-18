@@ -5,7 +5,7 @@ let jsList = [
 
     './js/entity.js',
     './js/module/main-post.js',
-    // './js/3rdparty/prism.js'
+    './js/module/main-post-detail.js',
 ]
 
 let developModel = true;

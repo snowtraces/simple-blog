@@ -25,7 +25,7 @@
             </div>
         </div>
         <div id="banner">
-            <a id="banner-box" href="/">
+            <a id="banner-box" href="./">
                 <h1>雪痕的博客</h1>
                 <div id="banner-info">SNOWTRACES'S BLOG - JUST FOR FUN</div>
             </a>
@@ -39,6 +39,11 @@
         <div id="footer"></div>
     </div>
     <script src="./js/main.js?version=1.0.0"></script>
+    <script>
+        window.addEventListener("popstate", function (e) {
+            self.location.reload();
+        }, false);
+    </script>
 </body>
 
 </html>

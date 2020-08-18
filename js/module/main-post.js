@@ -1,7 +1,7 @@
 {
     let view = {
         el: '#main',
-        template: `\${data.map(post => post.getHtml()).join('')}`,
+        template: `\${data.map(post => post.getAbstract()).join('')}`,
         render(data) {
             $.el(this.el).innerHTML = $.evalTemplate(this.template, data)
         }
@@ -16,19 +16,40 @@
             this.view = view
             this.model = model
 
-            this.listPost()
-            // this.view.render(this.model.data)
+            let existNav = this.pageNav()
+            if (!existNav) {
+                this.listPost()
+            }
             this.bindEvents()
             this.bindEventHub()
         },
         bindEvents() {
-            $.bindEvent('.post pre[class*="language-"]::before', 'click', (e) => alert(e.path[0]))
+            $.bindEvent('.abstract-post .post-title h2, .read-more-btn', 'click', (e) => {
+                e.preventDefault();
+                let path = e.target.getAttribute('href');
+                window.eventHub.emit('post-detail', path)
+            })
         },
         bindEventHub() {
 
         },
+        pageNav() {
+            let path = window.location.href
+            let url_segs = path.split('#')
+            if (url_segs.length >= 3) {
+                let cat = url_segs[1]
+                let param = url_segs[2]
+                if (cat === 'post') {
+                    window.eventHub.emit('post-detail', param)
+                }
+                return true
+            } else {
+                return false;
+            }
+        },
         listPost() {
             let script_list = ['./js/3rdparty/prism.js']
+            let post_obj = {}
             $.get('./data/post/index.json')
                 .then(indexList => {
                     indexList.forEach(async (fileName, idx) => {
@@ -40,15 +61,16 @@
                         $.log(post_info)
                         let post = new Post(
                             post_info.meta.title,
-                            '',
+                            fileName,
                             post_info.meta.author,
                             post_info.meta.date,
                             post_info.meta.date,
-                            post_info.post.length >= 2 ? post_info.post.slice(0, 2).join('') : post_info.post.slice(0, 2).join(''),
+                            post_info.post,
                             null
                         )
-                        this.model.data.push(post)
-                        if (indexList.length - 1 === idx) {
+                        post_obj[idx] = post
+                        if (indexList.length === Object.keys(post_obj).length) {
+                            this.model.data = Object.values(post_obj)
                             this.view.render(this.model.data)
                             syncLoad(script_list, loadScript)
                         }
