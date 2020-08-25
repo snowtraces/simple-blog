@@ -6,7 +6,7 @@ title: MySQL非主流模糊查询: 全文索引
 title_en: mysql_non-mainstream_fuzzy_query_full-text_index
 author: snowtraces
 id: 00003
-id_id: 66421
+old_id: 66421
 tags:
     - mysql
 category: 数据库
@@ -73,3 +73,4 @@ ft_min_word_len=2
 ### 查询速度
 
 查询采用了boolean模糊匹配，效率虽然比直接模糊查询快，但有时也会很慢。将查询结果前100条id放入表中，每次查询先查结果表。还可以加入分页查看的限制，如只能查看前10页结果，10页后要求填写验证码并且提示修改查询条件。
+

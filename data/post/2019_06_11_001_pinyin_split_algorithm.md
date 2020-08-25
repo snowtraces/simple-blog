@@ -6,7 +6,7 @@ title: 拼音拆分算法
 title_en: pinyin_split_algorithm
 author: snowtraces
 id: 00002
-id_id: 66486
+old_id: 66486
 tags:
     - javascript
 	- html
@@ -25,3 +25,4 @@ status: public
 </p>
 <script src="https://static.codepen.io/assets/embed/ei.js"></script>
 ```
+

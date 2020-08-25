@@ -54,7 +54,7 @@
             let post_obj = {}
             $.get('./data/post/index.json')
                 .then(indexList => {
-                    indexList.forEach(async (fileName, idx) => {
+                    indexList.reverse().forEach(async (fileName, idx) => {
                         let postText = await $.get(`./data/post/${fileName}.md`)
                         let post_info = $.mdParser(postText);
                         if (post_info.script) {

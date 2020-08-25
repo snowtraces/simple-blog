@@ -31,9 +31,7 @@
             </a>
         </div>
         <div id="content" class="w clearfix">
-            <div id="main" class="float-l">
-
-            </div>
+            <div id="main" class="float-l"> </div>
             <div id="aside" class="border-g float-l"></div>
         </div>
         <div id="footer"></div>
@@ -43,15 +41,14 @@
         window.addEventListener("popstate", function (e) {
             let path = window.location.href
             let url_segs = path.split('#')
-            debugger
             if (url_segs.length >= 3) {
                 let cat = url_segs[1]
                 let param = url_segs[2]
                 if (cat === 'post') {
-                    window.eventHub.emit('post-detail', {data: param})
+                    window.eventHub.emit('post-detail', { data: param })
                 }
             } else {
-                window.eventHub.emit('post-list', {pushStat: false})
+                window.eventHub.emit('post-list', { pushStat: false })
             }
         }, false);
     </script>

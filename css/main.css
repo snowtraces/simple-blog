@@ -180,7 +180,7 @@ a {
 
 .post p {
     font-size: 16px;
-    line-height: 1.7em;
+    line-height: 1.85em;
     margin: 1.2em 0;
 }
 
@@ -216,6 +216,51 @@ a {
     font-weight: bold;
     font-size: 17px;
     margin: 2em 0 1em;
+}
+
+.post .post-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.post .post-content table{
+    border-collapse:collapse;
+    width:100%;
+    font-size: 14px;
+    margin-bottom:1.2em;
+    line-height: 1.85em;
+}
+
+.post .post-content td,
+.post .post-content th{
+    padding:.4em .5em;
+    border:1px solid #ccc;
+    word-break: keep-all;
+    font-size:14px
+}
+
+.post .post-content th{
+    background-color:#e5ecf9;
+    text-align:left
+}
+
+
+.post .post-content .btn{display:inline-block;margin-right:1.75em}
+
+.post .post-content .btn a{padding:.5em 1em;border:1px solid #212121;color:#212121;letter-spacing: .07em;border-radius:3px;}
+
+.post .post-content .btn a:hover{color:#fff;background:#212121;border-radius:3px;transition:.3s}
+
+
+.post .post-content tr:hover{
+    background:#f4f4f4
+}
+
+.post .post-content ul {
+    padding:0 0 1.2em 1.5em;
+    overflow:hidden;
+    list-style-type:disc;
+    line-height: 1.85em;
 }
 
 .title-meta {

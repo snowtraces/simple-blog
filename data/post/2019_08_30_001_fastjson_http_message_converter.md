@@ -6,7 +6,7 @@ title: FastJsonHttpMessageConverter转义字符串问题处理
 title_en: fastjson_http_message_converter
 author: snowtraces
 id: 00001
-id_id: 66512
+old_id: 66512
 tags:
     - java
     - fastJson
@@ -146,3 +146,4 @@ public class Mvc2JsonConfig implements WebMvcConfigurer {
     }
 }
 ```
+
