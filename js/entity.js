@@ -17,7 +17,7 @@ class Post {
                 <span class="meta-author">${this.author}</span> / <span class="meta-time">${this.updateDate || this.createDate}</span>
             </div>
         </div>
-        <div class="post-content">${this.content.length >= 2 ? this.content.slice(0, 2).join('') : this.content.join('')}</div>
+        <div class="post-content">${this.content.length >= 3 ? this.content.slice(0, 3).join('') : this.content.join('')}</div>
         <div class="post-image"></div>
         <button class="read-more-btn" href="${this.url}">查看全文</button>
     </div>`
