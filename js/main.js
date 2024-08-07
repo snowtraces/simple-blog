@@ -8,13 +8,13 @@ let jsList = [
     './js/module/main-post-detail.js',
 ]
 
-let developModel = true;
+let developModel = false;
 
 let cssList = [
     './css/hight.css',
 ]
 
-let version = developModel ? new Date().getTime() : '1.0.0';
+let version = developModel ? new Date().getTime() : '1.0.1';
 
 function loadScript(url) {
     let script = document.createElement('script');
