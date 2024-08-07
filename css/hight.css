@@ -114,8 +114,9 @@ pre[data-line] {
 
 pre.line-numbers {
   position: relative;
-  padding-left: 3.8em;
+  padding: 0.5em 3.8em 0.5em;
   counter-reset: linenumber;
+  border: 1px solid #ddd;
 }
 
 pre.line-numbers > code {

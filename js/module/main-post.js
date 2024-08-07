@@ -24,7 +24,7 @@
             this.bindEventHub()
         },
         bindEvents() {
-            $.bindEvent('.abstract-post .post-title h2, .read-more-btn', 'click', (e) => {
+            $.bindEvent('.abstract-post .post-title h1, .read-more-btn', 'click', (e) => {
                 e.preventDefault();
                 let path = e.target.getAttribute('href');
                 window.eventHub.emit('post-detail', { data: path, pushState: true })
