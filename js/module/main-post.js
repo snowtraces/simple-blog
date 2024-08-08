@@ -52,7 +52,7 @@
         listPost(param) {
             let script_list = ['./js/3rdparty/prism.js']
             let post_obj = {}
-            $.get('./data/post/index.json')
+            $.get(`./data/post/index.json?v=${version}`)
                 .then(indexList => {
                     indexList.reverse().forEach(async (fileName, idx) => {
                         let postText = await $.get(`./data/post/${fileName}.md`)

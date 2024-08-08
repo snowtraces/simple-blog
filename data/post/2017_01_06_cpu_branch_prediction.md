@@ -65,7 +65,7 @@ public class Main
 
 想象一下铁路分叉口：
 
-![muxnt.jpg](./data/static/image/post_0009/muxnt.jpg)
+![muxnt.jpg](/data/static/image/post_0009/muxnt.jpg)
 
 Image by Mecanismo, via Wikimedia Commons. Used under the CC-By-SA 3.0 license.
 
@@ -80,7 +80,7 @@ Image by Mecanismo, via Wikimedia Commons. Used under the CC-By-SA 3.0 license.
 
 对于一个if条件语句，在处理器级别，它是一个分支指令：
 
-![if-statement-and-branch-instruction.png](./data/static/image/post_0009/if-statement-and-branch-instruction.png)
+![if-statement-and-branch-instruction.png](/data/static/image/post_0009/if-statement-and-branch-instruction.png)
 
 如果你是一个处理器，看到一个分支时并不知道选哪一个。 于是暂停执行并等待，直到前面的选择指令完成，然后继续执行正确的路径。
 

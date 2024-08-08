@@ -17,7 +17,7 @@ status: public
 
 RGB色彩模式下，R/G/B的取值分别为0x00~0xff（0~255），将其想象成一个以RGB分别为维度的三维空间，在取值范围内构成一个立方体
 
-![640px-RGB_color_solid_cube-300x225](./data/static/image/post_0007/640px-RGB_color_solid_cube-300x225.png)
+![640px-RGB_color_solid_cube-300x225](/data/static/image/post_0007/640px-RGB_color_solid_cube-300x225.png)
 
 此处我以空间均等八分为例（R/G/B各以128切分），取得八个空间的像素点分布，计算其平均值。
 
@@ -394,11 +394,11 @@ $(function () {
 
 ## 结果展示
 
-![color](./data/static/image/post_0007/color.jpg)
+![color](/data/static/image/post_0007/color.jpg)
 
 其中第一排颜色是根据[图片主题色提取算法小结](https://xcoder.in/2014/09/17/theme-color-extract/)中的八叉树算法提取的，这张图片色域比较大，两种结果较非常接近，下面更换图片看看结果
 
-![color2](./data/static/image/post_0007/color2.jpg)
+![color2](/data/static/image/post_0007/color2.jpg)
 
 结果依旧相近，但中位切分法获取了一个`#000000`结果被过滤了。
 

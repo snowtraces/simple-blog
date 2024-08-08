@@ -10,9 +10,10 @@ pre[class*="language-"] {
   hyphens: none;
   position: relative;
   background: #f6f6f6;
-  line-height: 1.2rem;
+  line-height: 1.5rem;
   overflow: auto;
   word-break: break-word;
+  font-size: 0.8rem;
 }
 
 /* Inline code */

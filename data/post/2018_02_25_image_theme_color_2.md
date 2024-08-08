@@ -211,7 +211,7 @@ for path in pathList:
 
 ## 效果展示
 
-![颜色提取二-1.png](./data/static/image/post_0004/颜色提取二-1.png)
+![颜色提取二-1.png](/data/static/image/post_0004/颜色提取二-1.png)
 
 上图依旧是提取8中颜色，颜色影响系数依次是0, 2, 4 … 14, 16，不难看出，本图片中体积影响系数到6以后结果就没有多大差别。
 

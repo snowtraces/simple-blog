@@ -84,7 +84,9 @@
         .main-content>* {
             font-style: normal;
             text-align: justify;
-            line-height: 150%;
+            line-height: 165%;
+            max-width: 960px;
+            margin: auto;
         }
 
         p>code {
@@ -101,6 +103,9 @@
             border: 2px solid rgb(140 140 140);
             font-size: 0.8rem;
             letter-spacing: 1px;
+            line-height: 1.2;
+            margin: 1rem 0;
+            width: 100%;
         }
 
         thead,
@@ -131,7 +136,7 @@
         @media screen and (max-width: 1100px) {
             .container {
                 display: block;
-                overflow: scroll;
+                overflow-y: scroll;
             }
 
             .sidebar {
@@ -152,7 +157,7 @@
             <div id="main"></div>
         </div>
     </div>
-    <script src="./js/main.js?version=1.0.0"></script>
+    <script src="./js/main.js?version=1.0.1"></script>
     <script>
         window.addEventListener("popstate", function (e) {
             let path = window.location.href
