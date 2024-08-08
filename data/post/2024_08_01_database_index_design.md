@@ -349,5 +349,5 @@ mysql> SELECT * from t_user where ((age > 30 AND sex = 1) or (age > 25 and sex =
 
 ## 9.更多
 
-- **书籍**：[数据库索引设计与优化](https://book.douban.com/subject/26419771/)
-- **书籍**：[数据密集型应用系统设计](https://book.douban.com/subject/30329536/)
++ **书籍**：[数据库索引设计与优化](https://book.douban.com/subject/26419771/)
++ **书籍**：[数据密集型应用系统设计](https://book.douban.com/subject/30329536/)
