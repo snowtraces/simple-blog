@@ -8,7 +8,7 @@ let jsList = [
     './js/module/main-post-detail.js',
 ]
 
-let developModel = true;
+let developModel = false;
 
 let cssList = [
     './css/hight.css',
