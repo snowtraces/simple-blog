@@ -1,35 +1,68 @@
 {
   "2024-08-07": [
-    "2024_08_01_database_index_design"
+    {
+      "path": "2024_08_01_database_index_design",
+      "title": "数据库索引设计"
+    }
   ],
   "2019-08-30": [
-    "2019_08_30_001_fastjson_http_message_converter"
+    {
+      "path": "2019_08_30_001_fastjson_http_message_converter",
+      "title": "FastJsonHttpMessageConverter转义字符串问题处理"
+    }
   ],
   "2019-06-11": [
-    "2019_06_11_001_pinyin_split_algorithm"
+    {
+      "path": "2019_06_11_001_pinyin_split_algorithm",
+      "title": "拼音拆分算法"
+    }
   ],
   "2018-06-14": [
-    "2018_06_14_001_mysql_non-mainstream_fuzzy_query_full-text_index"
+    {
+      "path": "2018_06_14_001_mysql_non-mainstream_fuzzy_query_full-text_index",
+      "title": "MySQL非主流模糊查询: 全文索引"
+    }
   ],
   "2018-02-25": [
-    "2018_02_25_image_theme_color_2"
+    {
+      "path": "2018_02_25_image_theme_color_2",
+      "title": "图像主题色提取简单实现（二）"
+    }
   ],
   "2017-08-12": [
-    "2017_08_12_the_use_of_mysql_index"
+    {
+      "path": "2017_08_12_the_use_of_mysql_index",
+      "title": "MySql索引的使用"
+    }
   ],
   "2017-08-07": [
-    "2017_08_07_sql_optimization_for_paging_query"
+    {
+      "path": "2017_08_07_sql_optimization_for_paging_query",
+      "title": "分页查询时SQL优化"
+    }
   ],
   "2017-04-23": [
-    "2017_04_23_image_theme_color_1"
+    {
+      "path": "2017_04_23_image_theme_color_1",
+      "title": "图像主题色提取简单实现"
+    }
   ],
   "2017-03-02": [
-    "2017_03_02_optimization_of_regular_expressions"
+    {
+      "path": "2017_03_02_optimization_of_regular_expressions",
+      "title": "正则表达式的优化"
+    }
   ],
   "2017-01-06": [
-    "2017_01_06_cpu_branch_prediction"
+    {
+      "path": "2017_01_06_cpu_branch_prediction",
+      "title": "CPU 分支预测"
+    }
   ],
   "2016-12-01": [
-    "2016_12_01_nine_simple_css_image_filters"
+    {
+      "path": "2016_12_01_nine_simple_css_image_filters",
+      "title": "9个简单的CSS图像滤镜"
+    }
   ]
 }

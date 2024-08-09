@@ -21,11 +21,13 @@
             if (!existNav) {
                 this.listPost({ pushState: false })
             }
+            this.loadPostIndex()
+
             this.bindEvents()
             this.bindEventHub()
         },
         bindEvents() {
-            $.bindEvent('.abstract-post .post-title h1, .read-more-btn', 'click', (e) => {
+            $.bindEvent('.abstract-post .post-title h1, .read-more-btn, .nav-post-link', 'click', (e) => {
                 e.preventDefault();
                 let path = e.target.getAttribute('href');
                 window.eventHub.emit('post-detail', { data: path, pushState: true })
@@ -50,12 +52,27 @@
                 return false;
             }
         },
+        loadPostIndex() {
+            $.get(`./data/post/index.json?v=${version}`)
+            .then(indexObj => {
+                let postIndexHtml = Object.keys(indexObj).map(date => `
+                <div class='post-index-grp'>
+                    <div class='post-index-date'>${date}</div>
+                    ${indexObj[date].map(post => `
+                        <a class='nav-post-link' href ='${post.path}'>${post.title}</a>
+                    `).join('')}
+                </div>
+                `).join('')
+                $.el('#post-index').innerHTML = postIndexHtml
+            })
+           
+        },
         listPost(param) {
             let script_list = ['./js/3rdparty/prism.js']
             let post_obj = {}
             $.get(`./data/post/index.json?v=${version}`)
                 .then(indexObj => {
-                    let indexList = Object.values(indexObj).slice(0, 9).flat().slice(0, 9)
+                    let indexList = Object.values(indexObj).slice(0, 9).flat().slice(0, 9).map(a => a.path)
                     indexList.forEach(async (fileName, idx) => {
                         let postText = await $.get(`./data/post/${fileName}.md`)
                         let post_info = $.mdParser(postText);

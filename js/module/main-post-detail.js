@@ -52,7 +52,8 @@
                     if (param.pushState) {
                         history.pushState({ 'page_id': post_info.meta.id || 0 }, null, './#post#' + param.data)
                     }
-                    window.scroll(0, 0)
+                    $.el('.container').scroll(0, 0)
+                    $.el('.main-content').scroll(0, 0)
                     syncLoad(script_list, loadScript)
                 })
         }
