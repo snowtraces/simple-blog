@@ -15,7 +15,8 @@
         init(view, model) {
             this.view = view
             this.model = model
-
+            
+            // 页面导航
             let existNav = this.pageNav()
             if (!existNav) {
                 this.listPost({ pushState: false })
@@ -53,8 +54,9 @@
             let script_list = ['./js/3rdparty/prism.js']
             let post_obj = {}
             $.get(`./data/post/index.json?v=${version}`)
-                .then(indexList => {
-                    indexList.reverse().forEach(async (fileName, idx) => {
+                .then(indexObj => {
+                    let indexList = Object.values(indexObj).slice(0, 9).flat().slice(0, 9)
+                    indexList.forEach(async (fileName, idx) => {
                         let postText = await $.get(`./data/post/${fileName}.md`)
                         let post_info = $.mdParser(postText);
                         if (post_info.script) {
