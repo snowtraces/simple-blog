@@ -17,11 +17,14 @@
 
         * {
             box-sizing: border-box;
-            max-width: 100%;
         }
 
         pre {
             margin: 1em 0;
+        }
+
+        img, table {
+            max-width: 100%;
         }
 
         .container {
@@ -99,6 +102,11 @@
             font-family: Consolas, Monaco, monospace;
         }
 
+        .table-wrapper {
+            width: 100%;
+            overflow: auto;
+        }
+
         table {
             border-collapse: collapse;
             border: 2px solid rgb(140 140 140);
@@ -106,7 +114,6 @@
             line-height: 1.2;
             margin: 1rem 0;
             width: 100%;
-            word-break: break-all;
         }
 
         thead,

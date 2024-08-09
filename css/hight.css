@@ -13,7 +13,7 @@ pre[class*="language-"] {
   line-height: 1.5rem;
   overflow: auto;
   word-break: break-word;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
 }
 
 /* Inline code */
@@ -115,7 +115,7 @@ pre[data-line] {
 
 pre.line-numbers {
   position: relative;
-  padding: 0.5em 3.8em 0.5em;
+  padding: 0.5em 0.5em 0.5em 3.8em;
   counter-reset: linenumber;
   border: 1px solid #ddd;
 }
