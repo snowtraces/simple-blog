@@ -8,23 +8,35 @@ let jsList = [
     './js/module/main-post-detail.js',
 ]
 
-let developModel = false;
+let developModel = true;
+
+if (developModel) {
+    jsList.push('./js/module/builder.js')
+}
 
 let cssList = [
     './css/hight.css',
 ]
 
-let version = developModel ? new Date().getTime() : '1.0.2';
+let version = developModel ? new Date().getTime() : '1.0.3';
 
 function loadScript(url) {
+    if (document.querySelector(`script[src="${url}?version=${version}"]`)) {
+        return
+    }
+
     let script = document.createElement('script');
     script.src = `${url}?version=${version}`;
     let body = document.querySelector('body');
     body.append(script);
-    
+
     return script;
 }
 function loadCss(url) {
+    if (document.querySelector(`link[href="${url}?version=${version}"]`)) {
+        return
+    }
+
     let link = document.createElement('link');
     link.rel = 'stylesheet'
     link.href = `${url}?version=${version}`;
@@ -40,10 +52,20 @@ function syncLoad(urlList, loadFunction) {
         return
     }
     let el = loadFunction(urlList[0]);
-    el.onload = () => {
+    if (el) {
+        el.onerror = () => {
+            urlList.shift()
+            syncLoad(urlList, loadFunction)
+        }
+        el.onload = () => {
+            urlList.shift()
+            syncLoad(urlList, loadFunction)
+        }
+    } else {
         urlList.shift()
         syncLoad(urlList, loadFunction)
     }
+
 }
 
 window.onload = function () {

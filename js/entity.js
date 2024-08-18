@@ -24,7 +24,7 @@ class Post {
     }
 
     getHtml() {
-        return `<div class="post">
+        return `<div class="post single-post">
         <div class="post-title">
             <h1>${this.title}</h1>
             <div class="title-meta">

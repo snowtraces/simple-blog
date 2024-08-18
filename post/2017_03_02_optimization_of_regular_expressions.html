@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寻觅</title>
+    <style>
+        html,
+        body {
+            font-family: "Times New Roman", serif;
+            background: #eceff1;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+        .hide {
+            display: none;
+        }
+
+        pre {
+            margin: 1em 0;
+        }
+
+        img,
+        table {
+            max-width: 100%;
+        }
+
+        .container {
+            display: flex;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            max-width: 450px;
+            flex: 1;
+            background-color: #e0e0e0;
+            overflow-y: auto;
+            padding: 35px;
+        }
+
+        .sidebar h2 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 1rem;
+        }
+
+        .sidebar h2 span {
+            font-size: 0.75rem;
+            font-family: serif;
+            font-weight: 500;
+            color: #999;
+            vertical-align: bottom;
+            padding-left: 10px;
+        }
+
+
+        .main-content {
+            flex: 2;
+            background-color: #fbfbfb;
+            overflow-y: auto;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #000033 !important;
+            font-weight: bold;
+            font-size: xx-large;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        h1>a,
+        h2>a {
+            color: #000033 !important;
+            text-decoration: none;
+        }
+
+        .single-post .post-title {
+            overflow: hidden;
+            position: sticky;
+            top: -31px;
+            background-color: #fbfbfb;
+            z-index: 1;
+        }
+
+        .title-meta {
+            padding-bottom: 0.5em;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .main-content>* {
+            font-style: normal;
+            text-align: justify;
+            line-height: 165%;
+            max-width: 960px;
+            margin: auto;
+        }
+
+        p>code {
+            font-size: 0.85rem;
+            padding: 2px 3px;
+            margin: 0 3px;
+            border-radius: 3px;
+            background-color: #e2e2e2;
+            font-family: Consolas, Monaco, monospace;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow: auto;
+            margin: 1rem 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 2px solid rgb(140 140 140);
+            font-size: 0.8rem;
+            line-height: 1.2;
+            width: 100%;
+            padding: 0.5rem;
+        }
+
+        thead,
+        tfoot {
+            background-color: rgb(228 240 245);
+        }
+
+        th,
+        td {
+            border: 1px solid rgb(160 160 160);
+            padding: 8px 10px;
+        }
+
+        tbody>tr:nth-of-type(even) {
+            background-color: rgb(237 238 242);
+        }
+
+        tfoot th {
+            text-align: right;
+        }
+
+        tfoot td {
+            font-weight: bold;
+        }
+
+        #post-index {
+            font-size: 0.875rem;
+        }
+
+        .post-index-grp {
+            margin-bottom: 0.5em;
+        }
+
+        .post-index-date {
+            color: #999;
+            font-size: 0.875em;
+        }
+
+        a.nav-post-link {
+            color: #333;
+        }
+
+        a.nav-post-link:hover {
+            color: #000;
+        }
+
+        /* response */
+        @media screen and (max-width: 1100px) {
+            .container {
+                display: block;
+                overflow-y: scroll;
+            }
+
+            .main-content {
+                overflow-y: visible;
+            }
+
+            .single-post .post-title {
+                top: -1px;
+            }
+
+
+            .sidebar {
+                max-width: 100%;
+                padding: 1rem;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="/css/hight.css?version=1723974088984"></head>
+
+<body>
+    <div class="container">
+
+        <div class="sidebar">
+            <h2> <a href="/">寻觅</a> <span>路漫漫其修远兮, 吾将上下而求索</span></h2>
+            <div id="post-index">
+                <div class="post-index-grp">
+                    <div class="post-index-date">2024-08-07</div>
+                    
+                        <a class="nav-post-link" href="/post/2024_08_01_database_index_design.html">数据库索引设计</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2019-08-30</div>
+                    
+                        <a class="nav-post-link" href="/post/2019_08_30_001_fastjson_http_message_converter.html">FastJsonHttpMessageConverter转义字符串问题处理</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2019-06-11</div>
+                    
+                        <a class="nav-post-link" href="/post/2019_06_11_001_pinyin_split_algorithm.html">拼音拆分算法</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2018-06-14</div>
+                    
+                        <a class="nav-post-link" href="/post/2018_06_14_001_mysql_non-mainstream_fuzzy_query_full-text_index.html">MySQL非主流模糊查询: 全文索引</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2018-02-25</div>
+                    
+                        <a class="nav-post-link" href="/post/2018_02_25_image_theme_color_2.html">图像主题色提取简单实现（二）</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2017-08-12</div>
+                    
+                        <a class="nav-post-link" href="/post/2017_08_12_the_use_of_mysql_index.html">MySql索引的使用</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2017-08-07</div>
+                    
+                        <a class="nav-post-link" href="/post/2017_08_07_sql_optimization_for_paging_query.html">分页查询时SQL优化</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2017-04-23</div>
+                    
+                        <a class="nav-post-link" href="/post/2017_04_23_image_theme_color_1.html">图像主题色提取简单实现</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2017-03-02</div>
+                    
+                        <a class="nav-post-link" href="/post/2017_03_02_optimization_of_regular_expressions.html">正则表达式的优化</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2017-01-06</div>
+                    
+                        <a class="nav-post-link" href="/post/2017_01_06_cpu_branch_prediction.html">CPU 分支预测</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2016-12-01</div>
+                    
+                        <a class="nav-post-link" href="/post/2016_12_01_nine_simple_css_image_filters.html">9个简单的CSS图像滤镜</a>
+                    
+                </div>
+                </div>
+        </div>
+        <div class="main-content">
+            <div id="main"><div class="post single-post">
+        <div class="post-title">
+            <h1>正则表达式的优化</h1>
+            <div class="title-meta">
+                <span class="meta-author">snowtraces</span> / <span class="meta-time">2017-03-02</span>
+            </div>
+        </div>
+        <div class="post-content">
+            <p>正则表达式的用途很多，比如web爬虫数据匹配，各种raw数据的清洗，或者是简单的字符串的截取。如果在写循环体内，正则表达式不够高效，会大幅影响性能。</p><p>本文主要介绍java中正则表达式的优化，其中很多内容与其他平台相同。</p><h2>正则表达式引擎
+</h2><p>正则表达式的引擎有两大类，分别为<code>DFA</code>和<code>NFA</code>，被主流的编程语言和工具所使用：</p><div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>引擎</th><th>编程语言 / 程序</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>DFA</td><td>egrep(大多数版本), MySql</td></tr><tr><td>传统 NFA</td><td>GNU Emacs, Java, grep(大部分版本),.NET, Perl, PHP, Python, Ruby</td></tr><tr><td>POSIX　NFA</td><td>mawk(), GNU Emacs(明确指定时)</td></tr><tr><td>DFA/NFA 混合</td><td>GNU awk，GUN grep/egrep, Tel</td></tr><tr></tr>
+            </tbody>
+        </table>
+        </div><p>其中 Java 的正则表达式引擎是传统的NFA(Nondeterministic Finite Automaton)，一般用其单独支持的忽略优先（Reluctant）量词与其他引擎进行区分。</p><p>NFA引擎最主要的性质是回溯（backtracking），在匹配时会依次处理各个子表达式或组成元素，遇到可能成功匹配的分支时，会选择其一同时记住另一个。需要做出分支选择的情况包括量词（决定是否尝试另一次）和多选结构。无论选择哪一分支，如果匹配成功，且表达式余下的部分也全部匹配成功，匹配完成。如果余下部分最终匹配失败，引擎会回溯到之前做出选择的地方，使用备用分支继续匹配。如此反复，直到匹配成功或最终尝试所有可能并失败。</p><p>下面根据例子，更好的说明匹配过程：</p><pre class="line-numbers language-markup"><code class="language-markup">正则表达式: 「to(note|knight|night)」匹配'hot tonic tonight!'</code></pre><p>第一个元素t从最左端开始尝试，匹配到第三个字符 <code>'t'</code> ，接下来<code>o</code>无法匹配空格，本轮尝试失败。</p><p>继续下去，<code>to</code>成功匹配，表达式中有三个多选分支，执行其一其他备用，假设按顺序选择。<code>no</code>无法匹配 <code>'ni'</code> ，尝试下一分支，<code>k</code>显然会立即失败，尝试<code>night</code>，<code>nig</code>也无法匹配 <code>'nic'</code>，本轮尝试失败。</p><p>再往下，重复以上匹配过程，最终多选分支<code>night</code>成功匹配，引擎宣告匹配成功。</p><h2>回溯优化分析
+</h2><p>如果在匹配过程中有过多的回溯，将会影响性能，所以正则表达式优化的一个主要组成部分就是减少回溯次数。</p><p>Java模式匹配引擎具有多项优化功能，可以自动应用。 但是，实际情况中无法始终依靠引擎来优化正则表达式。 在上面的例子中，正则表达式实际上匹配得很快，但更多真实的情况是，表达式太复杂，输入字符串太大，引擎优化难以发挥效果。</p><p>在现实应用场景中，可能遇到数小时才能完成的匹配。这段时间大部分都花费在不成功的匹配过程上，然后执行无尽的回溯动作，越是接近目标的结果消耗时间越多。</p><p>回溯有两个关键性的原则，分别是：</p><ul><li>如果在“尝试”和“跳过”中选择，遇到“匹配优先量词”则尝试，遇到“忽略优先量词”则跳过</li><li>回溯分支选择上使用LIFO（last in first out）原则</li></ul><h2>优化正则表达式的简单方法
+</h2><p>此处先介绍一些简单的优化方法：</p><h3>使用Pattern.compile()编译模式
+</h3><p>如果同一正则表达式被多次，确保使用<code>Pattern.compile()</code>编译模式，而不是<code>Pattern.matches()</code>。 因为<code>Pattern.matches()</code>每次调用都会重新编译表达式，如果在循环中会消耗过多不必要的时间。另外，<code>reset()</code>可以重置陪配器。</p><pre class="line-numbers language-java"><code class="language-java">Pattern p = Pattern.compile("a*b");
+Matcher m = p.matcher("aaaaab");
+boolean b = m.matches();</code></pre><h3>优化多选结构
+</h3><p>多选结构<code>(X | Y | Z)</code>是效率的一大杀手。 首先，将最常见的内容放在第一位置，以便更快地匹配。 其次，尝试提取常见的模式，例如将<code>(abcd | abef)</code>提取为<code>ab(cd | ef)</code>，NFA引擎尝试匹配<code>ab</code>时，如果匹配失败，将不会尝试任何替代方案。另外，有其他方案替换，如表达式<code>.*(abcd|efgh|ijkl).*</code>比使用三个<code>String.indexOf()</code>的调用慢。</p><h3>使用非捕获组
+</h3><p>获取捕获组会额外消耗一些时间，如果不需要捕获组内的文本，始终使用非捕获组。 例如，使用<code>(?:X)</code>替换<code>(X)</code>。</p><h2>使用引擎优化
+</h2><p>如前所述，<code>java.util.regex</code>引擎可以在编译时以多种方式优化正则表达式。 例如，如果正则表达式包含必须存在的内容块（否则整个表达式将不匹配），则引擎有时可以首先搜索该字符串并报告失败（如果没有找到匹配项） ，而不必检查整个正则表达式。</p><p>自动优化的另一个非常有用的方法，是引擎将正则表达式结果预期长度与目标长度进行比对。 例如，表达式<code>\d{100}</code>在内部进行了优化，使得如果输入字符串的长度不是100个字符，引擎将报告失败而不检查整个正则表达式。</p><p>所以每当编写复杂的正则表达式时，尝试找到一种书写方式，让引擎能够识别和优化这些特定的情况。 例如，不要将强制匹配的内容块写在分组或替换中，这样引擎将无法识别；如果可能，指定要匹配的输入字符串的长度。</p><h2>匹配优先和忽略优先量词
+</h2><div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>规则</th><th>常用表达式</th><th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>匹配优先/greedy</td><td>*, +, ?, {m, n}</td><td>优先匹配最大长度，匹配尽可能多的内容</td></tr><tr><td>忽略优先/reluctan</td><td>*?, +?, ??, {m, n}?</td><td>尽可能匹配最少内容，满足下限即成功</td></tr><tr></tr>
+            </tbody>
+        </table>
+        </div><p>一般情况下忽略优先量词会匹配更快，尽量避免使用类似<code>.*</code>的子结构，它会引起过多的回溯，尤其是剩余部分不能匹配时。如在查找两个字符间的所有内容时，使用<code>a([^a]*)a</code>比<code>a(.*)a</code>效率更高。</p><h2>占有优先量词和固化分组
+</h2><h3>固化分组
+</h3><p>固化分组的结构为<code>(?&gt;X)</code>，如果匹配进行到此结构之后，其内被所有的备用分支都被放弃，即固定分组匹配结束后，其匹配的文本作为一个固化部分，只能整体保留或放弃。在其结构块中，回溯失去了功能，但是可能会影响匹配结果，如下示例：</p><pre class="line-numbers language-markup"><code class="language-markup">(?&gt;.*?)</code></pre><p>上述表达式无法匹配任何内容，因为<code>.*?</code>为忽略优先模式，默认不匹配内容但保留点好匹配的分支，而固化分组又放弃分支，结果是不匹配任何内容，所以固化分组中使用忽略优先量词时要格外谨慎。下面是一个优化的示例：</p><pre class="line-numbers language-markup"><code class="language-markup">「\w+:」  匹配 subject</code></pre><p>很显然结果会失败，因为目标字符串不包括冒号，但是<code>\w+</code>是匹配优先，会先匹配<code>subject</code>，遇到冒号失败；然后回溯匹配<code>subjec</code>，如此循环，最终失败。如果使用<code>(?&gt;\w+):</code>匹配，一次性得到匹配失败的结果。</p><h3>占有优先量词
+</h3><div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>规则</th><th>常用表达式</th><th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>匹配优先/greedy</td><td>*, +, ?, {m, n}</td><td>优先匹配最大长度，匹配尽可能多的内容</td></tr><tr><td>占有优先/possesive</td><td>*+, ++, ?+, {m, n}+</td><td>优先匹配最大长度，放弃备用状态</td></tr><tr></tr>
+            </tbody>
+        </table>
+        </div><p>上表中可以看到，优先占有和匹配优先相比，会放弃备用状态，和固化分组十分相似，如<code>\w++</code>和<code>(?&gt;\w+)</code>的匹配结果完全相同，只是写起来更方便。</p><p>写起来相似就会出现混淆的问题。如<code>(X)*+</code>和<code>(?&gt;X)*</code>，前者即<code>X*+</code>，会放弃<code>X</code>子表达式和<code>*</code>整体的备用状态；后者只放弃<code>X</code>的备用状态，如果<code>X</code>中不存在量词匹配问题，那么这样书写就没有意义，改写为<code>(?&gt;X*)</code>后与<code>X*+</code>意义一致。</p><h2>如何优化正则表达式
+</h2><p>现在考虑一个例子：</p><pre class="line-numbers language-markup"><code class="language-markup">[^a]*a   匹配字符串：bbbbbbbbbbbbbbbb</code></pre><p>由于目标字符串不包含<code>a</code>，匹配结果显然会失败，但是正则表达式匹配引擎并不知道这一点。由于<code>[^a]*</code>是匹配优先模式，失败后会不断回溯。将<code>[^a]*a</code>改为<code>[^a]*+a</code>后，由于占有优先匹配失败时直接失败，不会回溯，效率更高。</p><h2>环视结构
+</h2><p>如果需要匹配某些字符以外的内容，可以使用类似<code>[^abc]*</code>的表达式，它匹配除<code>a</code>或<code>b</code>或<code>c</code>意外的任意字符。但如果需要匹配如<code>abc</code>或<code>cab</code>这种字符串以外的内容，就需要环视结构。</p><p><code>java.util.regex</code>中包含四种环视结构，包括肯定型和否定型，顺序环视和逆序环视，它们只是简单的测试，其中表达式能否在当前的位置匹配后面的内容（顺序），或者前面的内容（逆序），并不改变当前位置。分别是：</p><div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>规则</th><th>常用表达式</th><th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Positive lookahead</td><td>(?=X)</td><td>肯定型，先向后（右）匹配与X相符内容</td></tr><tr><td>Negative lookahead</td><td>(?!X)</td><td>否定型，先向后（右）匹配与X不相符内容</td></tr><tr><td>Positive lookbehind</td><td>(?&lt;=X)</td><td>肯定型，先向前（左）匹配与X相符内容</td></tr><tr><td>Negative lookbehind</td><td>(?<!--X)</td--></td><td>否定型，先向前（左）匹配与X不相符内容</td></tr><tr></tr>
+            </tbody>
+        </table>
+        </div><p>上面的问题可以使用<code>((?!abc).)*</code>来匹配，向后查找与<code>abc</code>不同的内容。</p>
+        </div>
+        <div class="post-image"></div>
+        <ul class="post-menu"></ul>
+    </div></div>
+        </div>
+    </div>
+    
+    <script>
+        window.addEventListener("popstate", function (e) {
+            let path = window.location.href
+            let url_segs = path.split('#')
+            if (url_segs.length >= 3) {
+                let cat = url_segs[1]
+                let param = url_segs[2]
+                if (cat === 'post') {
+                    window.eventHub.emit('post-detail', { data: param })
+                }
+            } else {
+                window.eventHub.emit('post-list', { pushStat: false })
+            }
+        }, false);
+    </script>
+
+
+<script src="/js/util/function.js?version=1723974088984"></script><script src="/js/util/markdown.js?version=1723974088984"></script><script src="/js/util/event-hub.js?version=1723974088984"></script><script src="/js/entity.js?version=1723974088984"></script><script src="/js/3rdparty/prism.js?version=1723974088984"></script><script src="https://static.codepen.io/assets/embed/ei.js?version=1723974088984"></script><script src="/js/util/saveData.js?version=1723974088984"></script></body></html>

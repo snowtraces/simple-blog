@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寻觅</title>
+    <style>
+        html,
+        body {
+            font-family: "Times New Roman", serif;
+            background: #eceff1;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+        .hide {
+            display: none;
+        }
+
+        pre {
+            margin: 1em 0;
+        }
+
+        img,
+        table {
+            max-width: 100%;
+        }
+
+        .container {
+            display: flex;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            max-width: 450px;
+            flex: 1;
+            background-color: #e0e0e0;
+            overflow-y: auto;
+            padding: 35px;
+        }
+
+        .sidebar h2 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 1rem;
+        }
+
+        .sidebar h2 span {
+            font-size: 0.75rem;
+            font-family: serif;
+            font-weight: 500;
+            color: #999;
+            vertical-align: bottom;
+            padding-left: 10px;
+        }
+
+
+        .main-content {
+            flex: 2;
+            background-color: #fbfbfb;
+            overflow-y: auto;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #000033 !important;
+            font-weight: bold;
+            font-size: xx-large;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        h1>a,
+        h2>a {
+            color: #000033 !important;
+            text-decoration: none;
+        }
+
+        .single-post .post-title {
+            overflow: hidden;
+            position: sticky;
+            top: -31px;
+            background-color: #fbfbfb;
+            z-index: 1;
+        }
+
+        .title-meta {
+            padding-bottom: 0.5em;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .main-content>* {
+            font-style: normal;
+            text-align: justify;
+            line-height: 165%;
+            max-width: 960px;
+            margin: auto;
+        }
+
+        p>code {
+            font-size: 0.85rem;
+            padding: 2px 3px;
+            margin: 0 3px;
+            border-radius: 3px;
+            background-color: #e2e2e2;
+            font-family: Consolas, Monaco, monospace;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow: auto;
+            margin: 1rem 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 2px solid rgb(140 140 140);
+            font-size: 0.8rem;
+            line-height: 1.2;
+            width: 100%;
+            padding: 0.5rem;
+        }
+
+        thead,
+        tfoot {
+            background-color: rgb(228 240 245);
+        }
+
+        th,
+        td {
+            border: 1px solid rgb(160 160 160);
+            padding: 8px 10px;
+        }
+
+        tbody>tr:nth-of-type(even) {
+            background-color: rgb(237 238 242);
+        }
+
+        tfoot th {
+            text-align: right;
+        }
+
+        tfoot td {
+            font-weight: bold;
+        }
+
+        #post-index {
+            font-size: 0.875rem;
+        }
+
+        .post-index-grp {
+            margin-bottom: 0.5em;
+        }
+
+        .post-index-date {
+            color: #999;
+            font-size: 0.875em;
+        }
+
+        a.nav-post-link {
+            color: #333;
+        }
+
+        a.nav-post-link:hover {
+            color: #000;
+        }
+
+        /* response */
+        @media screen and (max-width: 1100px) {
+            .container {
+                display: block;
+                overflow-y: scroll;
+            }
+
+            .main-content {
+                overflow-y: visible;
+            }
+
+            .single-post .post-title {
+                top: -1px;
+            }
+
+
+            .sidebar {
+                max-width: 100%;
+                padding: 1rem;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="/css/hight.css?version=1723974088984"></head>
+
+<body>
+    <div class="container">
+
+        <div class="sidebar">
+            <h2> <a href="/">寻觅</a> <span>路漫漫其修远兮, 吾将上下而求索</span></h2>
+            <div id="post-index">
+                <div class="post-index-grp">
+                    <div class="post-index-date">2024-08-07</div>
+                    
+                        <a class="nav-post-link" href="/post/2024_08_01_database_index_design.html">数据库索引设计</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2019-08-30</div>
+                    
+                        <a class="nav-post-link" href="/post/2019_08_30_001_fastjson_http_message_converter.html">FastJsonHttpMessageConverter转义字符串问题处理</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2019-06-11</div>
+                    
+                        <a class="nav-post-link" href="/post/2019_06_11_001_pinyin_split_algorithm.html">拼音拆分算法</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2018-06-14</div>
+                    
+                        <a class="nav-post-link" href="/post/2018_06_14_001_mysql_non-mainstream_fuzzy_query_full-text_index.html">MySQL非主流模糊查询: 全文索引</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2018-02-25</div>
+                    
+                        <a class="nav-post-link" href="/post/2018_02_25_image_theme_color_2.html">图像主题色提取简单实现（二）</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2017-08-12</div>
+                    
+                        <a class="nav-post-link" href="/post/2017_08_12_the_use_of_mysql_index.html">MySql索引的使用</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2017-08-07</div>
+                    
+                        <a class="nav-post-link" href="/post/2017_08_07_sql_optimization_for_paging_query.html">分页查询时SQL优化</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2017-04-23</div>
+                    
+                        <a class="nav-post-link" href="/post/2017_04_23_image_theme_color_1.html">图像主题色提取简单实现</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2017-03-02</div>
+                    
+                        <a class="nav-post-link" href="/post/2017_03_02_optimization_of_regular_expressions.html">正则表达式的优化</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2017-01-06</div>
+                    
+                        <a class="nav-post-link" href="/post/2017_01_06_cpu_branch_prediction.html">CPU 分支预测</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2016-12-01</div>
+                    
+                        <a class="nav-post-link" href="/post/2016_12_01_nine_simple_css_image_filters.html">9个简单的CSS图像滤镜</a>
+                    
+                </div>
+                </div>
+        </div>
+        <div class="main-content">
+            <div id="main"><div class="post single-post">
+        <div class="post-title">
+            <h1>MySql索引的使用</h1>
+            <div class="title-meta">
+                <span class="meta-author">snowtraces</span> / <span class="meta-time">2017-08-12</span>
+            </div>
+        </div>
+        <div class="post-content">
+            <p>上一篇文章<a title="分页查询时SQL优化" href="./" target="_blank">分页查询时SQL优化</a>中没有使用索引，但在一般的业务场景中都会涉及到模糊查询，如果模糊查询的条件在多张表中，而且不方便设置冗余字段来调整，就需要使用到索引了。MySql的缺省引擎为<code>InnoDB</code>，也是最主流的引擎，本文以其上的<code>Btree</code>索引进行讲解。</p><p>关于索引的技术细节，推荐文章：<a title="理解MySQL——索引与优化" href="https://www.cnblogs.com/hustcat/archive/2009/10/28/1591648.html" target="_blank">理解MySQL——索引与优化</a></p><h2>sql语句分析
+</h2><p><code>EXPLAIN</code>命令可以让你查看sql语句的执行参数，现假设有<code>table_a</code>，有<code>id</code>（主键）、<code>name</code>、<code>age</code>和<code>sex</code>四个字段，并对<code>age</code>设置索引<code>idx_age</code>，数据如下：</p><div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th><th>name</th><th>age</th><th>sex</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Jack</td><td>21</td><td>male</td></tr><tr><td>2</td><td>Rose</td><td>20</td><td>female</td></tr><tr></tr>
+            </tbody>
+        </table>
+        </div><p>先执行分析语句<code>explain select * from table_a where age&lt;'30'</code>，结果剔除与索引无关内容后如下：</p><div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>possible_keys</th><th>key</th><th>key_len</th><th>Extra</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>idx_age</td><td>idx_age</td><td>4</td><td>Using index condition</td></tr><tr></tr>
+            </tbody>
+        </table>
+        </div><p>其中<code>possible_keys</code>代表可以使用的索引，<code>key</code>是实际中使用的索引，具体的选择由sql引擎的确定，但是多个索引时，引擎的选择不一定最优，可以通过<code>USE INDEX</code>来主动选择索引：</p><pre class="line-numbers language-sql"><code class="language-sql">select * from table_a　use　index　(idx_age) where age&lt;'30'</code></pre><h2>联合索引
+</h2><p>联合索引也叫复合索引，是基于两个及以上属性建立的。BTree索引遵循最左匹配原则，是从左到右依次建立和查询树结构的。</p><p>现对<code>table_a</code>建立索引<code>(name, age, sex)</code>，会先检查<code>name</code>属性，命中后才会检查<code>age</code>属性，<code>age</code>命中后才会查询<code>sex</code>，例如传入条件顺序为<code>(name, sex, age)</code>，此时只有name的索引能被使用到。</p><h3>索引的失效
+</h3><p>大家都知道，对于模糊查询的传入条件<code>%keyword%</code>，由于前置百分号的原因索引是不会生效的，对于联合索引，还存在断点失效机制。</p><p>在联合索引从左到右检索的过程中，遇到范围查询<code>&gt;, &lt;, like, between</code>就会形成断点，其后的所有索引都会失效。如传入条件<code>name = 'Rose' and age &lt; 20 and sex = 'female'</code>，首先假如<code>name</code>条件命中，继续<code>age</code>上的条件，由于是范围查询，无论命中与否其后条件都不会使用索引，对于本例，只需将<code>age &lt; 20</code>的条件放在最后即可。</p><h3>索引使用的判断
+</h3><p>通过以上判断断点，基本可以确定使用了那些索引，但是有时结果并不是你想要的。具体索引使用情况的判断 ，可以根据<code>key_len</code>来确定，下面是<code>key_len</code>的计算方法：</p><ul><li>联合索引中每个字段，如果不是<code>not null</code>，则需加1个字节</li><li>定长字段，<code>int</code>占4个字节、<code>date</code>占3个字节、<code>char(n)</code>占n个字符</li><li>可变字段<code>varchar(n)</code>，占n个字符+2个字节</li><li>不同的字符集，每个字符占用的字节数不同，其中<code>latin1</code>每个字符占1个字节，<code>gbk</code>每个字符占2个字节，<code>utf8</code>每个字符占3个字节</li></ul><p>假如有字段定义为<code>varchar(32)  DEFAULT  NULL</code>，那么它的<code>key_len</code>为<code>32*3 + 2 + 1 = 99</code>。计算出每个字段的<code>key_len</code>，然后和EXPLAIN结果中的对比，就看得出结论。</p>
+        </div>
+        <div class="post-image"></div>
+        <ul class="post-menu"></ul>
+    </div></div>
+        </div>
+    </div>
+    
+    <script>
+        window.addEventListener("popstate", function (e) {
+            let path = window.location.href
+            let url_segs = path.split('#')
+            if (url_segs.length >= 3) {
+                let cat = url_segs[1]
+                let param = url_segs[2]
+                if (cat === 'post') {
+                    window.eventHub.emit('post-detail', { data: param })
+                }
+            } else {
+                window.eventHub.emit('post-list', { pushStat: false })
+            }
+        }, false);
+    </script>
+
+
+<script src="/js/util/function.js?version=1723974088984"></script><script src="/js/util/markdown.js?version=1723974088984"></script><script src="/js/util/event-hub.js?version=1723974088984"></script><script src="/js/entity.js?version=1723974088984"></script><script src="/js/3rdparty/prism.js?version=1723974088984"></script><script src="https://static.codepen.io/assets/embed/ei.js?version=1723974088984"></script><script src="/js/util/saveData.js?version=1723974088984"></script></body></html>

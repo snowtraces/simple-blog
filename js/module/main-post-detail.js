@@ -55,6 +55,7 @@
                     $.el('.container').scroll(0, 0)
                     $.el('.main-content').scroll(0, 0)
                     syncLoad(script_list, loadScript)
+                    window.eventHub.emit('loadingOff', param.data)
                 })
         }
     }

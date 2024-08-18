@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寻觅</title>
+    <style>
+        html,
+        body {
+            font-family: "Times New Roman", serif;
+            background: #eceff1;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+        .hide {
+            display: none;
+        }
+
+        pre {
+            margin: 1em 0;
+        }
+
+        img,
+        table {
+            max-width: 100%;
+        }
+
+        .container {
+            display: flex;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            max-width: 450px;
+            flex: 1;
+            background-color: #e0e0e0;
+            overflow-y: auto;
+            padding: 35px;
+        }
+
+        .sidebar h2 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 1rem;
+        }
+
+        .sidebar h2 span {
+            font-size: 0.75rem;
+            font-family: serif;
+            font-weight: 500;
+            color: #999;
+            vertical-align: bottom;
+            padding-left: 10px;
+        }
+
+
+        .main-content {
+            flex: 2;
+            background-color: #fbfbfb;
+            overflow-y: auto;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #000033 !important;
+            font-weight: bold;
+            font-size: xx-large;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        h1>a,
+        h2>a {
+            color: #000033 !important;
+            text-decoration: none;
+        }
+
+        .single-post .post-title {
+            overflow: hidden;
+            position: sticky;
+            top: -31px;
+            background-color: #fbfbfb;
+            z-index: 1;
+        }
+
+        .title-meta {
+            padding-bottom: 0.5em;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .main-content>* {
+            font-style: normal;
+            text-align: justify;
+            line-height: 165%;
+            max-width: 960px;
+            margin: auto;
+        }
+
+        p>code {
+            font-size: 0.85rem;
+            padding: 2px 3px;
+            margin: 0 3px;
+            border-radius: 3px;
+            background-color: #e2e2e2;
+            font-family: Consolas, Monaco, monospace;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow: auto;
+            margin: 1rem 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 2px solid rgb(140 140 140);
+            font-size: 0.8rem;
+            line-height: 1.2;
+            width: 100%;
+            padding: 0.5rem;
+        }
+
+        thead,
+        tfoot {
+            background-color: rgb(228 240 245);
+        }
+
+        th,
+        td {
+            border: 1px solid rgb(160 160 160);
+            padding: 8px 10px;
+        }
+
+        tbody>tr:nth-of-type(even) {
+            background-color: rgb(237 238 242);
+        }
+
+        tfoot th {
+            text-align: right;
+        }
+
+        tfoot td {
+            font-weight: bold;
+        }
+
+        #post-index {
+            font-size: 0.875rem;
+        }
+
+        .post-index-grp {
+            margin-bottom: 0.5em;
+        }
+
+        .post-index-date {
+            color: #999;
+            font-size: 0.875em;
+        }
+
+        a.nav-post-link {
+            color: #333;
+        }
+
+        a.nav-post-link:hover {
+            color: #000;
+        }
+
+        /* response */
+        @media screen and (max-width: 1100px) {
+            .container {
+                display: block;
+                overflow-y: scroll;
+            }
+
+            .main-content {
+                overflow-y: visible;
+            }
+
+            .single-post .post-title {
+                top: -1px;
+            }
+
+
+            .sidebar {
+                max-width: 100%;
+                padding: 1rem;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="/css/hight.css?version=1723974088984"></head>
+
+<body>
+    <div class="container">
+
+        <div class="sidebar">
+            <h2> <a href="/">寻觅</a> <span>路漫漫其修远兮, 吾将上下而求索</span></h2>
+            <div id="post-index">
+                <div class="post-index-grp">
+                    <div class="post-index-date">2024-08-07</div>
+                    
+                        <a class="nav-post-link" href="/post/2024_08_01_database_index_design.html">数据库索引设计</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2019-08-30</div>
+                    
+                        <a class="nav-post-link" href="/post/2019_08_30_001_fastjson_http_message_converter.html">FastJsonHttpMessageConverter转义字符串问题处理</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2019-06-11</div>
+                    
+                        <a class="nav-post-link" href="/post/2019_06_11_001_pinyin_split_algorithm.html">拼音拆分算法</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2018-06-14</div>
+                    
+                        <a class="nav-post-link" href="/post/2018_06_14_001_mysql_non-mainstream_fuzzy_query_full-text_index.html">MySQL非主流模糊查询: 全文索引</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2018-02-25</div>
+                    
+                        <a class="nav-post-link" href="/post/2018_02_25_image_theme_color_2.html">图像主题色提取简单实现（二）</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2017-08-12</div>
+                    
+                        <a class="nav-post-link" href="/post/2017_08_12_the_use_of_mysql_index.html">MySql索引的使用</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2017-08-07</div>
+                    
+                        <a class="nav-post-link" href="/post/2017_08_07_sql_optimization_for_paging_query.html">分页查询时SQL优化</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2017-04-23</div>
+                    
+                        <a class="nav-post-link" href="/post/2017_04_23_image_theme_color_1.html">图像主题色提取简单实现</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2017-03-02</div>
+                    
+                        <a class="nav-post-link" href="/post/2017_03_02_optimization_of_regular_expressions.html">正则表达式的优化</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2017-01-06</div>
+                    
+                        <a class="nav-post-link" href="/post/2017_01_06_cpu_branch_prediction.html">CPU 分支预测</a>
+                    
+                </div>
+                
+                <div class="post-index-grp">
+                    <div class="post-index-date">2016-12-01</div>
+                    
+                        <a class="nav-post-link" href="/post/2016_12_01_nine_simple_css_image_filters.html">9个简单的CSS图像滤镜</a>
+                    
+                </div>
+                </div>
+        </div>
+        <div class="main-content">
+            <div id="main"><div class="post single-post">
+        <div class="post-title">
+            <h1>FastJsonHttpMessageConverter转义字符串问题处理</h1>
+            <div class="title-meta">
+                <span class="meta-author">snowtraces</span> / <span class="meta-time">2019-08-30</span>
+            </div>
+        </div>
+        <div class="post-content">
+            <p>最近进行几个api项目进行合并，发现rest接口原有的<code>Date</code>类型被转成时间戳，与期望的<code>long</code>类型不一致，于是引入<code>FastJsonHttpMessageConverter</code>进行统一转换，复制粘贴一气呵成：</p><pre class="line-numbers language-java"><code class="language-java">@Bean
+	public HttpMessageConverters fastJsonHttpMessageConverters() {
+		//1、定义一个convert转换消息的对象
+		FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
+		//2、添加fastjson的配置信息
+		FastJsonConfig fastJsonConfig = new FastJsonConfig();
+		fastJsonConfig.setSerializerFeatures(SerializerFeature.WriteMapNullValue);
+		//3、在convert中添加配置信息
+		fastConverter.setFastJsonConfig(fastJsonConfig);
+		//4、将convert添加到converters中
+		HttpMessageConverter&lt;?&gt; converter = fastConverter;
+		return new HttpMessageConverters(converter);
+	}</code></pre><p>然后自测中发现有些接口返回值被进行了二次转换，如：</p><pre class="line-numbers language-code"><code class="language-code">"{\"a\":\"a\"}"</code></pre><p>看代码发现，有个项目RestController的所有返回值都被手动转换了：</p><pre class="line-numbers language-java"><code class="language-java">return JSON.toJSONString(resultMap);</code></pre><p>上面的配置方式，由于<code>FastJsonHttpMessageConverter</code>的优先级高于<code>StringHttpMessageConverter</code>，导致所有返回都被进行转换，而且没有排除<code>String</code>类型的配置，于是debug一下springboot源码，发现默认转换器的添加逻辑：</p><pre class="line-numbers language-java"><code class="language-java">/**
+	 * Adds a set of default HttpMessageConverter instances to the given list.
+	 * Subclasses can call this method from {@link #configureMessageConverters}.
+	 * @param messageConverters the list to add the default message converters to
+	 */
+	protected final void addDefaultHttpMessageConverters(List&lt;HttpMessageConverter&lt;?&gt;&gt; messageConverters) {
+		StringHttpMessageConverter stringHttpMessageConverter = new StringHttpMessageConverter();
+		stringHttpMessageConverter.setWriteAcceptCharset(false);  // see SPR-7316
+
+		messageConverters.add(new ByteArrayHttpMessageConverter());
+		messageConverters.add(stringHttpMessageConverter);
+		messageConverters.add(new ResourceHttpMessageConverter());
+		messageConverters.add(new ResourceRegionHttpMessageConverter());
+		messageConverters.add(new SourceHttpMessageConverter&lt;&gt;());
+		messageConverters.add(new AllEncompassingFormHttpMessageConverter());
+
+		if (romePresent) {
+			messageConverters.add(new AtomFeedHttpMessageConverter());
+			messageConverters.add(new RssChannelHttpMessageConverter());
+		}
+
+		if (jackson2XmlPresent) {
+			Jackson2ObjectMapperBuilder builder = Jackson2ObjectMapperBuilder.xml();
+			if (this.applicationContext != null) {
+				builder.applicationContext(this.applicationContext);
+			}
+			messageConverters.add(new MappingJackson2XmlHttpMessageConverter(builder.build()));
+		}
+		else if (jaxb2Present) {
+			messageConverters.add(new Jaxb2RootElementHttpMessageConverter());
+		}
+
+		if (jackson2Present) {
+			Jackson2ObjectMapperBuilder builder = Jackson2ObjectMapperBuilder.json();
+			if (this.applicationContext != null) {
+				builder.applicationContext(this.applicationContext);
+			}
+			messageConverters.add(new MappingJackson2HttpMessageConverter(builder.build()));
+		}
+		else if (gsonPresent) {
+			messageConverters.add(new GsonHttpMessageConverter());
+		}
+		else if (jsonbPresent) {
+			messageConverters.add(new JsonbHttpMessageConverter());
+		}
+
+		if (jackson2SmilePresent) {
+			Jackson2ObjectMapperBuilder builder = Jackson2ObjectMapperBuilder.smile();
+			if (this.applicationContext != null) {
+				builder.applicationContext(this.applicationContext);
+			}
+			messageConverters.add(new MappingJackson2SmileHttpMessageConverter(builder.build()));
+		}
+		if (jackson2CborPresent) {
+			Jackson2ObjectMapperBuilder builder = Jackson2ObjectMapperBuilder.cbor();
+			if (this.applicationContext != null) {
+				builder.applicationContext(this.applicationContext);
+			}
+			messageConverters.add(new MappingJackson2CborHttpMessageConverter(builder.build()));
+		}
+	}</code></pre><p>然后决定换一种方式添加<code>FastJsonHttpMessageConverter</code>，只需其优先级高于默认的<code>jacksonConverter</code>，并且低于<code>StringHttpMessageConverter</code>即可：</p><pre class="line-numbers language-java"><code class="language-java">@Configuration
+public class Mvc2JsonConfig implements WebMvcConfigurer {
+
+    /**
+     * FastJsonHttpMessageConverter 在 HttpMessageConverter 列表中的位置
+     * 若 FastJsonHttpMessageConverter 在 StringHttpMessageConverter 前被调用，会导致对string进行二次转换
+     * 由于 StringHttpMessageConverter 在第1和2的位置上，要排在其后，并且排在jacksonConverter之前，故位置为3
+     */
+    private static final int FAST_JSON_CONVERTER_INDEX = 3;
+
+    FastJsonHttpMessageConverter fastJsonHttpMessageConverter() {
+        FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
+
+        List&lt;MediaType&gt; supportMediaTypeList = new ArrayList&lt;&gt;();
+        supportMediaTypeList.add(MediaType.TEXT_HTML);
+        supportMediaTypeList.add(MediaType.APPLICATION_JSON);
+        supportMediaTypeList.add(MediaType.APPLICATION_JSON_UTF8);
+        supportMediaTypeList.add(MediaType.valueOf("application/*+json"));
+
+        FastJsonConfig fastJsonConfig = new FastJsonConfig();
+        fastJsonConfig.setSerializerFeatures(SerializerFeature.WriteMapNullValue);
+        converter.setFastJsonConfig(fastJsonConfig);
+        converter.setSupportedMediaTypes(supportMediaTypeList);
+
+        return converter;
+    }
+
+    @Override
+    public void extendMessageConverters(List&lt;HttpMessageConverter&lt;?&gt;&gt; messageConverters) {
+        messageConverters.add(FAST_JSON_CONVERTER_INDEX, fastJsonHttpMessageConverter());
+    }
+}</code></pre>
+        </div>
+        <div class="post-image"></div>
+        <ul class="post-menu"></ul>
+    </div></div>
+        </div>
+    </div>
+    
+    <script>
+        window.addEventListener("popstate", function (e) {
+            let path = window.location.href
+            let url_segs = path.split('#')
+            if (url_segs.length >= 3) {
+                let cat = url_segs[1]
+                let param = url_segs[2]
+                if (cat === 'post') {
+                    window.eventHub.emit('post-detail', { data: param })
+                }
+            } else {
+                window.eventHub.emit('post-list', { pushStat: false })
+            }
+        }, false);
+    </script>
+
+
+<script src="/js/util/function.js?version=1723974088984"></script><script src="/js/util/markdown.js?version=1723974088984"></script><script src="/js/util/event-hub.js?version=1723974088984"></script><script src="/js/entity.js?version=1723974088984"></script><script src="/js/3rdparty/prism.js?version=1723974088984"></script><script src="https://static.codepen.io/assets/embed/ei.js?version=1723974088984"></script><script src="/js/util/saveData.js?version=1723974088984"></script></body></html>
